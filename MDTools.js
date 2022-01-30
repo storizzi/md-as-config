@@ -7,7 +7,7 @@ Handlebars.registerHelper('date', require('helper-date'))
 var camelCase = require('lodash.camelcase')
 
 MDTools = function(settingsFileName,rootSettingsKey,initialSettings,createRootSettingsKey) {
-    this.settings=initialSettings?initialSettings:{camelCase:true}
+    this.settings=initialSettings?initialSettings:{camelCase:true, exePath:__dirname}
     if (settingsFileName) {
         this.settings = MDTools.settingsFromFile(settingsFileName,this.settings,null,rootSettingsKey,createRootSettingsKey)
     }
@@ -16,7 +16,7 @@ MDTools = function(settingsFileName,rootSettingsKey,initialSettings,createRootSe
 MDTools.prototype.getSettingsFile = function(fileName, rootSettingsKey, additionalSettings,
         createRootSettingsKey,beforeHandleBarsHook,ignoreHandlebars) {
     if (additionalSettings) {
-        if (!this.settings) this.settings = {camelCase: true}
+        if (!this.settings) this.settings = {camelCase: true, exePath:__dirname}
         this.settings = merge(this.settings, additionalSettings, { arrayMerge: MDTools.combineMerge } )
     }
     this.settings = MDTools.settingsFromFile(fileName,this.settings,null,rootSettingsKey,
@@ -35,7 +35,7 @@ Handlebars.registerHelper('json', function(context) {
 });
 
 Handlebars.registerHelper('includeSettings', function(context, rootSettingsKey, debug, options) {
-    // console.log(context)
+    console.log(context)
     if (rootSettingsKey?.data) {
         rootSettingsKey=null
         options = rootSettingsKey

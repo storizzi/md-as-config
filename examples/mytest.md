@@ -9,10 +9,11 @@ This is general description above the personal settings
 * Account Holder
   * First Name:Simon
   * Last Name:Huggins
-  * Full Name:{{accountHolder.firstName}} {{accountHolder.lastName}}
+  * Full Name:{{topLevelSettings.personalDetails.accountHolder.firstName}} {{topLevelSettings.personalDetails.accountHolder.lastName}}
 
 This is general description below the personal settings
 
+{{includeTextFile './test3.txt'}}
 
 
 Notice how blank lines are ignored

@@ -12,7 +12,7 @@ that will be included and will replace the preamble
 
 # Included Details
 
-* Base Dir:./
+* Base Dir:⟦⟦exePath⟧⟧/examples/
 * User Details:«««includeSettings (append includedDetails.baseDir 'test2.md') 'personalDetails'»»»
 * Other Details:«««includeSettings (append includedDetails.baseDir 'test2.md') 'otherDetails'»»»
 * All Details:«««includeSettings (append includedDetails.baseDir 'test2.md')»»»

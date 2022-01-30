@@ -1,0 +1,6 @@
+This is some additional text
+included from another file
+
+But notice that blank lines are included
+And also notice that the path is relative to the directory the node program was called from
+and not necessarily the directory of the parent file

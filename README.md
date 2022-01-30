@@ -1,6 +1,6 @@
 # Markdown As Configuration
 
-Converts Markdown files to Json for easy configuration. Includes Macro-Style inclusions using Handlebars, so that you can build configuration based on other configuration, including configuration from linked files
+Converts Markdown files to simple Json for intuitive human-readable configuration. Includes Macro-Style inclusions using Handlebars, so that you can build configuration based on other configuration, including configuration from linked files. [Apache 2.0 License](./LICENSE)
 
 ## Examples
 

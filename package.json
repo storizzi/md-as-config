@@ -1,0 +1,35 @@
+{
+  "name": "md-as-config",
+  "version": "v1.0.0",
+  "description": "Markdown as Config",
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Simon Huggins",
+    "email": "simon@storizzi.com",
+    "url": "http://www.storizzi.com"
+  },
+  "main": "MDTools.js",
+  "scripts": {
+    "test": "node examples/test.js"
+  },
+  "keywords": [
+    "configuration",
+    "markdown",
+    "settings",
+    "json",
+    "config",
+    "readable"
+  ],
+  "dependencies": {
+    "deepmerge": "^4.2.2",
+    "handlebars": "^4.7.7",
+    "handlebars-helpers": "^0.9.8",
+    "helper-date": "^1.0.1",
+    "lodash.camelcase": "^4.3.0",
+    "path": "^0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/storizzi/md-as-config.git"
+  }
+}

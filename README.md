@@ -14,6 +14,7 @@ See the [Examples Folder](./examples/EXAMPLES.md)
 * Sub-Headings are an object within the top-level object - nested however deep you like
 * Any lists are treated as an array with the parent heading as the key
 * If you have lists within lists, then the parent list item is treated like an object with the item as the key, and the items in the list as an array
+* Lists
 * Any description not in a heading or a list is treated like a description that belongs to the section related to the last heading (or sub-heading).
   * The description is placed in an attribute under the object under that heading called 'description'
   * Blank lines are ignored

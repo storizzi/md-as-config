@@ -4,11 +4,11 @@ Converts Markdown files to simple Json for intuitive human-readable configuratio
 
 Install it into your project using:
 
-```npm install md-as-config```
+```npm install --save md-as-config```
 
 or you are super-brave and want to use the latest development version:
 
-```npm install "https://github.com/storizzi/md-as-config.git#dev"```
+```npm install --save "https://github.com/storizzi/md-as-config.git#dev"```
 
 ## Example Usage
 
@@ -160,7 +160,7 @@ Parameters:
 * File Name of settings file to include
 * Optional: name of heading to include (otherwise all headings will be included from the settings file) - if you choose this option, then the heading itself will not be included, just the settings below it
 
-###Example
+### Example
 
 ``` markdown
 # Included Details
@@ -193,7 +193,7 @@ And the output would be:
    "settings": {
       "includedDetails": {
          "baseDir": "./",
-         "userDetails": {
+         "personalDetails": {
             "description": "This is general description above the settings\nThis is general description below the settings\nNotice how blank lines are ignored\n",
             "accountHolder": {
                "firstName": "Simon",

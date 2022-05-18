@@ -150,14 +150,23 @@ MDTools.recurseExtract = function (obj,settings) {
     if (typeof obj !== 'object' || obj === null || Array.isArray(obj)) return obj
 
     let result = {}
-    let entries = Object.entries(obj)
+
+    let strippedObj = obj
+    delete strippedObj.settingTitle
+    delete strippedObj.parentSettingTitle
+    // console.log(`Stripped Obj: ${util.inspect(strippedObj,false,3)}`)
+
+    let entries = Object.entries(strippedObj)
+    let strippedObjLength = entries.length
 
     for (let [key, value] of entries) {
         if (settings && settings.camelCase) key = camelCase(key)
+
         if (key === "settingValues" && Array.isArray(value)) {
             let settingArray = []
             for (const item of value) {
                 let parsedArrItem = MDTools.recurseExtract(item,settings)
+                // console.log(`Parsed Arr Item: ${util.inspect(parsedArrItem,false,2)}`)
                 if (typeof parsedArrItem === 'object' && parsedArrItem !== null) {
                     let parsedArrItemEntries = Object.entries(parsedArrItem)
                     if(parsedArrItemEntries.length===1) {
@@ -172,6 +181,7 @@ MDTools.recurseExtract = function (obj,settings) {
                     if (parsedArrItem) settingArray.push(parsedArrItem)
                 }
             }
+            
             if (settingArray.length===1 &&
                 typeof settingArray[0] === 'object' &&
                 settingArray[0] !== null)
@@ -186,10 +196,18 @@ MDTools.recurseExtract = function (obj,settings) {
             } else {
                 if (settingArray.length>0) result["settingValues"] = settingArray
             }
-        } else if (key !== "settingTitle" && key !== "parentSettingTitle") {
+        } else {
             //console.log(key+" >> "+value)
-            if (settings && settings.camelCase) key = camelCase(key)
-            result[key] = MDTools.recurseExtract(value,settings)
+            // console.log(util.inspect(strippedObj,false,3))
+            // if (settings && settings.camelCase) key = camelCase(key)
+            value = MDTools.recurseExtract(value,settings)
+            if (strippedObjLength===1 && key === "description") {
+                result = value
+                // console.log('Single: '+key+" >> "+value)
+            } else result[key]=value
+        }
+        if (key === "settingValues" && strippedObjLength===1) {
+            result = result["settingValues"]
         }
     }
     let resultEntries = Object.entries(result)
@@ -202,14 +220,11 @@ MDTools.recurseExtract = function (obj,settings) {
         } else {
             delete result.settingValue
         }
-        // console.log("settingValue:"+JSON.stringify({settingValue:result},null,3))
+         //console.log("settingValue:"+JSON.stringify({settingValue:result},null,3))
         let settingRet = {}
         if (settings && settings.camelCase) settingValue = camelCase(settingValue)
         settingRet[settingValue]=result
         return settingRet
-    } else {
-        if(typeof(settingValue)==="string" && settingValue.length === 0)
-            delete result.settingValue
     }
 
     return result

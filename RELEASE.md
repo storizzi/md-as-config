@@ -1,5 +1,9 @@
 # RELEASE HISTORY
 
+## v1.0.2 - 19 May 2022
+
+- Bug when only one settingValue fixed
+
 ## v1.0.1 - 18 May 2022
 
 - Fixed issue where a subheading of the next order was not permitted - e.g. # followed by ### without a ## heading appearing first

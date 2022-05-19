@@ -207,7 +207,7 @@ MDTools.recurseExtract = function (obj,settings) {
             } else result[key]=value
         }
         if (key === "settingValues" && strippedObjLength===1) {
-            result = result["settingValues"]
+            result = value
         }
     }
     let resultEntries = Object.entries(result)

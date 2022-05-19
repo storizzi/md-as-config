@@ -12,6 +12,10 @@ that will be included and will replace the preamble
 
 # Included Details
 
+Notice that the full Name works for userDetails and otherDetails but not allDetails
+
+This is because test2.md does not invoke the personalDetails heading which is removed in the first two cases
+
 * Base Dir:⟦⟦exePath⟧⟧/examples/
 * User Details:«««includeSettings (append includedDetails.baseDir 'test2.md') 'personalDetails'»»»
 * Other Details:«««includeSettings (append includedDetails.baseDir 'test2.md') 'otherDetails'»»»
